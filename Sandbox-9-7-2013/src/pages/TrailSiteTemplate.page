@@ -1,0 +1,17 @@
+<apex:page showHeader="false" id="TrailSiteTemplate">
+  <apex:stylesheet value="{!URLFOR($Resource.SiteExtentor, 'SiteStyles.css')}"/>
+         <!-- -->
+
+  <apex:insert name="header">
+    <c:trailsiteheader />
+  </apex:insert>
+         <!-- -->
+
+  <apex:insert name="body"/>
+  <apex:insert name="footer">
+    <c:trailsitefooter />
+    <site:googleAnalyticsTracking />
+  </apex:insert>
+         <!-- -->
+
+</apex:page>

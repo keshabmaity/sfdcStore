@@ -1,0 +1,32 @@
+<apex:page controller="ShowController"  showHeader="false">
+ <apex:pageBlock title="Contact Details" mode="readonly"  >
+     <apex:pageBlockSection title="Personal Details"   >
+         <apex:repeat value="{!DetailContact}"  var="co">         
+             <apex:pageBlockSectionItem >
+             <apex:outputLabel value="First Name"/>
+                 <apex:outputText value="{!co.FirstName}"></apex:outputText>
+             </apex:pageBlockSectionItem>
+             <apex:pageBlockSectionItem >
+              <apex:outputLabel value="Last Name"/>
+                 <apex:outputText value="{!co.FirstName}"></apex:outputText>
+             </apex:pageBlockSectionItem>
+                  <apex:pageBlockSectionItem >
+              <apex:outputLabel value="Last Name"/>
+                 <apex:outputText value="{!co.FirstName}"></apex:outputText>
+             </apex:pageBlockSectionItem>
+              <apex:pageBlockSectionItem >
+             </apex:pageBlockSectionItem>
+         </apex:repeat>
+
+     
+     </apex:pageBlockSection>
+      <apex:pageBlockSection >
+     
+     </apex:pageBlockSection>
+      <apex:pageBlockSection >
+     
+     </apex:pageBlockSection>
+ 
+ </apex:pageBlock>
+ 
+</apex:page>

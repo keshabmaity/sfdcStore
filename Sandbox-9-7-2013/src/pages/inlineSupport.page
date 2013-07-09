@@ -1,0 +1,32 @@
+<apex:page standardController="Contact">
+	<Script>
+Function resetInlineEdit(){
+alert("before");
+    document.getElementById("form1.sec1").reset();
+    alert("After"):
+}
+</script>
+	<apex:enhancedList type="Account" height="300" rowsPerPage="10"
+		id="AccountList" />
+	<apex:enhancedList type="Lead" height="300" rowsPerPage="25"
+		id="LeadList" customizable="False" />
+	<apex:form id="form1">
+		<apex:pageBlock mode="inlineEdit">
+			<apex:pageBlockButtons >
+				<apex:commandButton action="{!edit}" id="editButton" value="Edit" />
+				<apex:commandButton action="{!save}" id="saveButton" value="Save" />
+				<apex:commandButton onclick="resetInlineEdit()" id="cancelButton"
+					value="Cancel" />
+			</apex:pageBlockButtons>
+			<apex:pageBlockSection id="sec1">
+				<apex:outputField value="{!contact.lastname}">
+					<apex:inlineEditSupport showOnEdit="saveButton, cancelButton"
+						hideOnEdit="editButton" event="ondblclick"
+						changedStyleClass="myBoldClass" resetFunction="resetInlineEdit" />
+				</apex:outputField>
+				<apex:outputField value="{!contact.accountId}" />
+				<apex:outputField value="{!contact.phone}" />
+			</apex:pageBlockSection>
+		</apex:pageBlock>
+	</apex:form>
+</apex:page>

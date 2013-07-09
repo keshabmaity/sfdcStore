@@ -1,0 +1,80 @@
+<apex:page id="loginPage" showHeader="false" title="{!$Label.site.site_login}" controller="ShowController">
+  <apex:composition template="TrailSiteTemplate">
+    <apex:define name="body">
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+  
+  
+ 
+<style>
+
+#maindev{
+border:2px solid green;
+display: block;
+width:100%;
+height:100%;
+}
+#leftdev{
+border:1px solid green;
+display: block;
+width:65%;
+height:260px;
+background-color: white;
+}
+
+div#rightdev{
+    left: 65%;
+    top:55px;
+    width:100%;
+    position: absolute;
+    border:0px solid red;
+    display: block;
+    background-color: #FFFFCC;
+}
+div#menu{
+position: relative;
+border:1px solid red;
+display: block;
+height:35px;
+width:65%;
+background-color: grey;
+
+}
+div#activepage{
+position: relative;
+border:0px solid red;
+display: block;
+height:300px;
+width:100%;
+
+}
+</style>
+
+<div id="maindev">
+
+                  <h1>WELCOME TO TRAIL LOGIN</h1>
+  <apex:form >
+  
+    <apex:pageBlock Title="Details">
+        <apex:pageBlockTable value="{!returnContact}" var="con"> 
+            <apex:column >
+                <apex:commandLink action="/apex/contactDetail?id={!con.id}">{!con.FirstName} {!con.LastName}</apex:commandLink>
+            </apex:column>      
+            <apex:column value="{!con.phone}"/>        
+            <apex:column value="{!con.birthdate}"/>    
+        </apex:pageBlockTable>
+    
+    </apex:pageBlock>
+
+
+</apex:form>  
+
+</div>
+
+
+
+    </apex:define>
+
+  </apex:composition>
+  
+</apex:page>

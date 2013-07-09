@@ -1,0 +1,76 @@
+<apex:page sidebar="false" showHeader="false" controller="ProfileLoginController" standardStylesheets="true" docType="Html">
+
+  <apex:composition template="TrailSiteTemplate">
+    <apex:define name="body">
+
+<style type="text/css">
+
+    #maindev{
+    border:1px solid green;
+    display: block;
+    width:100%;
+    height:100%;
+    background-color: white;
+    }
+    #maindev div#leftdev{
+    border:1px solid red;
+    display: block;
+    width:70%;
+    height:200px;
+    background-color: white;
+    }
+    #rightdev{
+    left: 70%;
+    top:55px;
+    position: absolute;
+    border:1px solid red;
+    display: block;
+    background-color: white;
+
+    }
+</style>
+
+    <div id="maindev">
+        <div id="leftdev"></div>
+        <div id="rightdev"> 
+        
+           <apex:form forceSSL="true"> 
+     <apex:actionFunction name="getAPIParams" id="getAPIParams" action="{!apiSession}" reRender="theForm" >
+         <apex:param name="sessionId" assignTo="{!apiSessionId}" value="{!$Api.Session_ID}" />
+     </apex:actionFunction>
+        <script language="JavaScript">      
+                  window.onload = function() { getAPIParams();}
+        </script>
+      
+                
+                <apex:panelGrid border="1" cellpadding="5" cellspacing="5" columns="1"  style="align:right;">
+                    <apex:panelGrid border="0" cellpadding="0" cellspacing="5" columns="1">
+                        <apex:panelGrid border="0" cellpadding="0" cellspacing="0" columns="2">
+                            <input type="hidden" name="startURL" value="" />  
+                            <label  for="userName">UserName:</label>  
+                            <apex:inputText value="{!UserId}"  Styleclass="username" />   
+                            <label  for="password">Password:</label>
+                            <apex:inputSecret value="{!UserPassword}"  Styleclass="pw" />   
+                            <div class="pbButtonb">
+                            <apex:commandButton value="Login" action="{!login}" >
+                                <apex:param name="sessionId" assignTo="{!apiSessionId}" value="{!$Api.Session_ID}" />
+                            </apex:commandButton>
+                            </div>
+                        </apex:panelGrid>
+                        <div><a id="forgotPassword" href="/apex/TrailForgotPassword">Forgot your password?</a>  </div>
+                        <apex:pageMessages id="msg" />
+                    </apex:panelGrid>
+                </apex:panelGrid>
+           </apex:form>  
+           
+            
+        </div>
+    </div>
+
+
+    
+
+
+    </apex:define>
+  </apex:composition>
+</apex:page>

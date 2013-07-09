@@ -1,0 +1,28 @@
+<!--
+    @Author: Keshab 
+    @Date:04/07/13
+    @Description: Test Rest API By sending Request 
+-->
+<apex:page controller="RestAPICallOut" >
+<apex:form >
+    <apex:commandButton action="{!makeCallOut}" value="Make Get Call Out"  title="Select" reRender="panel"/>
+    <apex:commandButton action="{!makePOSTCallOut}" value="Make postCall Out"  title="Create" reRender="panel" />
+    <apex:commandButton action="{!makeDELETECallOut}" value="Make DELETE Call "  title="DELETE"  reRender="panel"/>
+    <apex:commandButton action="{!makePUTCallOut}" value="Make PUT Call Out" title="Edit" reRender="panel" />
+    <apex:commandButton action="{!makePUTCallOut1}" value="Make PUT Call Out1" title="Edit" reRender="panel" />
+    <apex:commandButton action="{!makePUTCallOutAuth2}" value="Acth2 Put" title="Edit" reRender="panel" />
+    
+        
+    
+</apex:form>
+<apex:outputPanel id="panel">
+<apex:outputLabel value="JSONString  : " rendered="{!IF(JSONString  !=null,true,false)}"/>
+<apex:outputText value="{!JSONString}" label="JSONString  " /><br/>
+<br/>
+<apex:outputLabel value="StatusCode  : " rendered="{!IF(resStatusCode!=null,true,false)}"/>
+<apex:outputText value="{!resStatusCode}" label="StatusCode" /><br/>
+<apex:outputLabel value="Status  : " rendered="{!IF(resStatus!=null,true,false)}"/>
+<apex:outputText value="{!resStatus}" label="Status"/><br/>
+<apex:outputText value="{!resBody}"/>
+</apex:outputPanel>
+</apex:page>
