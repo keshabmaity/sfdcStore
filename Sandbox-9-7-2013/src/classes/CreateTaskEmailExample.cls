@@ -14,6 +14,7 @@ global class CreateTaskEmailExample implements Messaging.InboundEmailHandler {
    
     // New Task object to be created
     Task[] newTask = new Task[0];
+    /**/
    
     // Try to look up any contacts based on the email from address
     // If there is more than one contact with the same email address,
